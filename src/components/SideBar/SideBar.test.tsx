@@ -86,7 +86,6 @@ describe("SideBar component", () => {
             expect(items.length).toBe(2);
             expect(items[0].getAttribute("class")).toEqual(items[1].getAttribute("class"));
             expect(selectedItem.getAttribute("class")).not.toBe(items[0].getAttribute("class"));
-            console.log("FINAL DO FOR EACH")
         });
     })
 });

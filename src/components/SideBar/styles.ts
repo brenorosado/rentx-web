@@ -45,6 +45,5 @@ export const SideItem = styled.li<{ isSelected: boolean }>`
             color: ${isSelected ? white : gray_text};
         `;
     }};
-
     cursor: pointer;
 `;

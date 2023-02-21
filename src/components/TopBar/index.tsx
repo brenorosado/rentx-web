@@ -9,9 +9,20 @@ type TopBarProps = {
 export const TopBar = ({ currentPath }: TopBarProps) => {
     console.log("currentPath", currentPath);
 
+    const getLocation = (pathname: string) => {
+        const location = pathname.split("/")[1];
+
+        if(location === "inicio") return "Início";
+        if(location === "minha-conta") return  "Perfil";
+
+        return location.charAt(0).toUpperCase() + location.slice(1);
+    }
+
     return (
         <S.TopBarContainer>
-            <S.Location>{currentPath.replace("/", "")}</S.Location>
+            <S.Location data-testid="location">
+                {getLocation(currentPath)}
+            </S.Location>
             <S.AuthInfoContainer>
                 <span>Faça login</span>
                 <div>
