@@ -1,22 +1,22 @@
 import React from "react";
 import * as S from "./styles";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { BsHouse } from "react-icons/bs";
 import { MdOutlineDirectionsCarFilled } from "react-icons/md";
 import { RiUser6Line } from "react-icons/ri";
 import Logo from "../../assets/images/logo.png";
 import { useEffect, useState } from "react";
 
-export const SideBar = () => {
-    const [showSideItems, setShowSideItems] = useState<boolean>(true);
+type SideBarProps = {
+    currentPath: string;
+}
 
-    const location = useLocation();
-
-    const { pathname } = location; 
+export const SideBar = ({ currentPath }: SideBarProps) => {
+    const [showSideItems, setShowSideItems] = useState<boolean>(true); 
 
     useEffect(() => {
         const sideBarPreference = localStorage.getItem("rentx_sidebar");
-        setShowSideItems(sideBarPreference === "shown");
+        if(sideBarPreference) setShowSideItems(sideBarPreference === "shown");
     }, [])
 
     return (
@@ -34,7 +34,7 @@ export const SideBar = () => {
                     <Link to="/inicio">
                         <S.SideItem 
                             title="Início"
-                            isSelected={pathname.includes("/inicio")}
+                            isSelected={currentPath.includes("/inicio")}
                         >
                             <BsHouse />
                         </S.SideItem>
@@ -42,7 +42,7 @@ export const SideBar = () => {
                     <Link to="/carros">
                         <S.SideItem
                             title="Carros"
-                            isSelected={pathname.includes("carros")}
+                            isSelected={currentPath.includes("carros")}
                         >
                             <MdOutlineDirectionsCarFilled />
                         </S.SideItem>
@@ -51,9 +51,9 @@ export const SideBar = () => {
                         <S.SideItem 
                             title="Minha conta"
                             isSelected={
-                                pathname.includes("minha-conta") || 
-                                pathname.includes("cadastro") ||
-                                pathname.includes("entrar")
+                                currentPath.includes("minha-conta") || 
+                                currentPath.includes("cadastro") ||
+                                currentPath.includes("entrar")
                             }
                         >
                             <RiUser6Line />
