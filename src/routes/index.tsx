@@ -2,12 +2,23 @@ import React from "react";
 import { BrowserRouter, Routes, createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 import { Home } from "../pages/Home";
 import { PageNotFound } from "../pages/PageNotFound";
+import { Registration } from "../pages/Registration";
+import { MenusLayout } from "../Layout/MenusLayout";
 
 const routes = [
     {
         path: "/",
         authRequired: false,
         element: <Home />
+    },
+    {
+        path: "/cadastro",
+        authRequired: false,
+        element: (
+            <MenusLayout>
+                <Registration />
+            </MenusLayout>
+        )
     }
 ]
 
@@ -20,6 +31,7 @@ export const ProjectRoutes = () => {
                 {routes.map(({ element, path, authRequired }) =>
                     isAuthenticated &&
                     <Route
+                        key={path}
                         path={path}
                         element={element}
                     />
