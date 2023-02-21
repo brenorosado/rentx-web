@@ -1,4 +1,5 @@
 import { SideBar } from "../../components/SideBar";
+import { TopBar } from "../../components/TopBar";
 import { useLocation } from "react-router-dom";
 
 type MenusLayoutProps = {
@@ -10,7 +11,8 @@ export const MenusLayout = ({ children }: MenusLayoutProps) => {
 
     return (
         <main>
-            <SideBar currentPath={location.pathname}/>
+            <SideBar currentPath={location.pathname} />
+            <TopBar currentPath={location.pathname} />
             {children}
         </main>
     )
