@@ -8,14 +8,10 @@ import { MdOutlineDirectionsCarFilled } from "react-icons/md";
 import { Button } from "../../components/Button";
 
 export const Registration = () => {
-    const { handleSubmit, register } = useForm();
+    const { handleSubmit, register, formState: { errors } } = useForm();
 
     const registrate = async (data: any) => {
         console.log("data", data);
-    }
-
-    const errorHandler = (errors: any) => {
-        console.log("errors", errors)
     }
 
     return (
@@ -23,7 +19,7 @@ export const Registration = () => {
             <S.RegistrationColumnInfo>
                 <h1>Crie sua conta</h1>
                 <p>Faça seu cadastro de forma<br/> rápida e fácil.</p>
-                <form onSubmit={handleSubmit(registrate, errorHandler)}>
+                <form onSubmit={handleSubmit(registrate)}>
                     <FormInput
                         id="name"
                         placeHolder="Nome"
@@ -31,9 +27,10 @@ export const Registration = () => {
                         icon={<RiUser6Line />}
                         register={{
                             ...register("name", {
-                                required: "Campo 'Nome' obrigatório."
+                                required: "Campo obrigatório."
                             })
                         }}
+                        error={errors?.name?.message}
                     />
                     <FormInput
                         id="email"
@@ -42,9 +39,10 @@ export const Registration = () => {
                         icon={<AiOutlineMail />}
                         register={{
                             ...register("email", {
-                                required: "Campo 'E-mail' obrigatório."
+                                required: "Campo obrigatório."
                             })
                         }}
+                        error={errors?.email?.message}
                     />
                     <FormInput
                         id="cnh"
@@ -53,9 +51,10 @@ export const Registration = () => {
                         icon={<MdOutlineDirectionsCarFilled />}
                         register={{
                             ...register("cnh", {
-                                required: "Campo 'E-mail' obrigatório."
+                                required: "Campo obrigatório."
                             })
                         }}
+                        error={errors?.cnh?.message}
                     />
                     <FormInput
                         id="password"
@@ -64,9 +63,10 @@ export const Registration = () => {
                         icon={<RiUser6Line />}
                         register={{
                             ...register("password", {
-                                required: "Campo 'Senha' obrigatório."
+                                required: "Campo obrigatório."
                             })
                         }}
+                        error={errors?.password?.message}
                         isPassword={true}
                     />
                     <FormInput
@@ -76,9 +76,10 @@ export const Registration = () => {
                         icon={<AiOutlineLock />}
                         register={{
                             ...register("passwordConfirmation", {
-                                required: "Campo 'Repetir senha' obrigatório."
+                                required: "Campo obrigatório."
                             })
                         }}
+                        error={errors?.passwordConfirmation?.message}
                         isPassword={true}
                     />
 

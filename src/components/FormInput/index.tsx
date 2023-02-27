@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import * as S from "./styles";
-import { UseFormRegisterReturn } from "react-hook-form";
+import { Merge, FieldError, UseFormRegisterReturn, FieldErrorsImpl } from "react-hook-form";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { BiErrorCircle } from "react-icons/bi";
 
 type InputProps = {
     label: string;
@@ -11,6 +12,7 @@ type InputProps = {
     isPassword?: boolean;
     register: UseFormRegisterReturn;
     icon: JSX.Element;
+    error?: string | FieldError | Merge<FieldError, FieldErrorsImpl<any>>;
 }
 
 export const FormInput = ({
@@ -20,12 +22,13 @@ export const FormInput = ({
     type = "text",
     isPassword = false,
     icon,
-    label
+    label,
+    error
 }: InputProps) => {
     const [showPassword, setShowPassword] = useState<boolean>(false);
 
     return (
-        <S.FormInputContainer>
+        <S.FormInputContainer error={!!error}>
             <S.IconContainer title={label}>
                 {icon}
             </S.IconContainer>
@@ -46,6 +49,12 @@ export const FormInput = ({
                             {showPassword ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
                         </button>
                     </>
+                )}
+
+                {error && (
+                    <S.ErrorContainer>
+                        <span><BiErrorCircle /> {error as string}</span>
+                    </S.ErrorContainer>
                 )}
             </S.InputContainer>
         </S.FormInputContainer>

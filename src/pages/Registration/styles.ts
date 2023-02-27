@@ -11,7 +11,7 @@ export const RegistrationSection = styled.section`
 `;
 
 export const CarImage = styled.img`
-    width: clamp(352px, 33.75vw, 33.75vw);
+    width: clamp(272px, 33.75vw, 33.75vw);
     flex-shrink: 0;
 `;
 
@@ -33,6 +33,7 @@ export const RegistrationColumnInfo = styled.article`
     }
 
     form {
+        min-width: 272px;
         display: flex;
         flex-direction: column;
         gap: clamp(8px, 0.42vw, 0.42vw);

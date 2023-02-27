@@ -15,7 +15,7 @@ export const TopBarContainer = styled.nav`
 `;
 
 export const Location = styled.span`
-    font-size: clamp(20px, 1.042vw, 1.042vw);
+    font-size: clamp(12px, 1.042vw, 1.042vw);
     font-weight: 600;
     text-transform: capitalize;
 `;
@@ -23,11 +23,11 @@ export const Location = styled.span`
 export const AuthInfoContainer = styled.div`
     display: flex;
     align-items: center;
-    gap: clamp(16px, 0.83vw, 0.83vw);
+    gap: clamp(12px, 0.83vw, 0.83vw);
     cursor: pointer;
 
     span {
-        font-size: clamp(16px, 0.83vw, 0.83vw);
+        font-size: clamp(12px, 0.83vw, 0.83vw);
         font-weight: 600;
     }
     
@@ -35,8 +35,8 @@ export const AuthInfoContainer = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
-        width: clamp(48px, 2.5vw, 2.5vw);
-        height: clamp(48px, 2.5vw, 2.5vw);
+        width: clamp(24px, 2.5vw, 2.5vw);
+        height: clamp(24px, 2.5vw, 2.5vw);
         border-radius: 50%;
         font-size: clamp(22px, 1.146vw, 1.146vw);
         ${({ theme }) => {
