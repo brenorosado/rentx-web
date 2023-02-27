@@ -19,7 +19,7 @@ export const Registration = () => {
     }
 
     return (
-        <S.RegistrationMain>
+        <S.RegistrationSection>
             <S.RegistrationColumnInfo>
                 <h1>Crie sua conta</h1>
                 <p>Faça seu cadastro de forma<br/> rápida e fácil.</p>
@@ -89,7 +89,9 @@ export const Registration = () => {
                     />
                 </form>
             </S.RegistrationColumnInfo>
-            <S.CarImage src={RegistrationImage} alt="rentX-registration"/>
-        </S.RegistrationMain>
+            <S.RegistrationColumnInfo>
+                <S.CarImage src={RegistrationImage} alt="rentX-registration"/>
+            </S.RegistrationColumnInfo>
+        </S.RegistrationSection>
     )
 }

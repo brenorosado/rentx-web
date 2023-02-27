@@ -10,7 +10,12 @@ export const MenusLayout = ({ children }: MenusLayoutProps) => {
     const location = useLocation();
 
     return (
-        <main>
+        <main 
+            style={{ 
+                minHeight: "100vh",
+                paddingTop: "clamp(80px, 4.167vw, 4.167vw)"
+            }}
+        >
             <SideBar currentPath={location.pathname} />
             <TopBar currentPath={location.pathname} />
             {children}

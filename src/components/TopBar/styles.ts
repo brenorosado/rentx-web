@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
 export const TopBarContainer = styled.nav`
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
     background: ${({ theme }) => theme.colors.white};
     height: clamp(80px, 4.167vw, 4.167vw);
     padding: clamp(16px, 0.83vw, 0.83vw) clamp(16px, 6.042vw, 6.042vw);
