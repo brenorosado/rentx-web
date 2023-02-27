@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledButton = styled.button<{ styleType: "RED" | "GREEN" }>`
-    padding: clamp(29px, 1.5vw, 1.52vw) clamp(80px, 4.17vw, 4.17vw);
+    padding: clamp(24px, 1.25vw, 1.25vw) clamp(80px, 4.17vw, 4.17vw);
     outline: none;
     border: none;
     font-family: 'Inter', sans-serif;
