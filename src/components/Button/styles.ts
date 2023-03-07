@@ -10,7 +10,11 @@ export const StyledButton = styled.button<{ styleType: "RED" | "GREEN" }>`
     color: white;
     cursor: pointer;
 
-    ${({ theme, styleType }) => `
-        background: ${styleType === "RED" ? theme.colors.red : theme.colors.green};
-    `}
+    ${({ theme, styleType }) => {
+        const { red, green } = theme.colors;
+
+        return `
+            background: ${styleType === "RED" ? red : green};
+        `
+    }}
 `;

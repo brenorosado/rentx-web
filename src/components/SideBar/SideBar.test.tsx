@@ -1,5 +1,5 @@
 import { SideBar } from ".";
-import { render, screen, waitFor } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { ThemeProvider } from "styled-components";
 import { BrowserRouter } from "react-router-dom";
