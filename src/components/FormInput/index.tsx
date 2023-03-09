@@ -10,7 +10,7 @@ type InputProps = {
     placeHolder: string;
     type?: string;
     isPassword?: boolean;
-    register: UseFormRegisterReturn;
+    register?: UseFormRegisterReturn;
     icon: JSX.Element;
     error?: string | FieldError | Merge<FieldError, FieldErrorsImpl<any>>;
 }
