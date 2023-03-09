@@ -6,13 +6,27 @@ import { RiUser6Line } from "react-icons/ri";
 import { AiOutlineMail, AiOutlineLock } from "react-icons/ai";
 import { MdOutlineDirectionsCarFilled } from "react-icons/md";
 import { Button } from "../../components/Button";
+import { useFetch } from "../../hooks/useFetch";
 
 export const Registration = () => {
     const { handleSubmit, register, formState: { errors } } = useForm();
+    const { fetch: mergeRegistration, loading, error } = useFetch({
+        route: "/account",
+        method: "post",
+        authRequired: false
+    });
 
     const registrate = async (data: any) => {
-        console.log("data", data);
-    }
+        const registrationResponse = await mergeRegistration({ 
+            payload: {
+                ...data,
+                role: "USER"
+            }
+        });
+
+        console.log("registrationResponse", registrationResponse);
+        console.log("error", error);
+    };
 
     return (
         <S.RegistrationSection>
