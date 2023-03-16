@@ -14,7 +14,7 @@ type ModalProps = {
 export const Modal = ({ title, text, buttonText, success, onOk }: ModalProps) => {
     return (
         <S.Overlay>
-            <S.Modal>
+            <S.Modal data-testid="modal">
                 {success ? (
                     <FaCheck size="clamp(64px, 3.33vw, 3.33vw)" color={theme.colors.green}/>
                 ) : (
