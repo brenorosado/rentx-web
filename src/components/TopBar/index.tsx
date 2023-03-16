@@ -7,8 +7,6 @@ type TopBarProps = {
 
 
 export const TopBar = ({ currentPath }: TopBarProps) => {
-    console.log("currentPath", currentPath);
-
     const getLocation = (pathname: string) => {
         const location = pathname.split("/")[1];
 
