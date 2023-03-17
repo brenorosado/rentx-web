@@ -1,14 +1,14 @@
 import { useState } from "react";
 import * as S from "./styles";
 import { useForm } from "react-hook-form";
-import RegistrationImage from "../../assets/images/RegistrationImage.png";
-import { FormInput } from "../../components/FormInput";
+import RegistrationImage from "@/assets/images/RegistrationImage.png";
+import { FormInput } from "@/components/FormInput";
 import { RiUser6Line } from "react-icons/ri";
 import { AiOutlineMail, AiOutlineLock } from "react-icons/ai";
 import { MdOutlineDirectionsCarFilled } from "react-icons/md";
-import { Button } from "../../components/Button";
-import { useFetch } from "../../hooks/useFetch";
-import { Modal } from "../../components/Modal";
+import { Button } from "@/components/Button";
+import { useFetch } from "@/hooks/useFetch";
+import { Modal } from "@/components/Modal";
 import { useNavigate } from "react-router-dom";
 
 const modalInfoInitialState = {

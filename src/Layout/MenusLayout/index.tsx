@@ -1,5 +1,5 @@
-import { SideBar } from "../../components/SideBar";
-import { TopBar } from "../../components/TopBar";
+import { SideBar } from "@/components/SideBar";
+import { TopBar } from "@/components/TopBar";
 import { useLocation } from "react-router-dom";
 
 type MenusLayoutProps = {

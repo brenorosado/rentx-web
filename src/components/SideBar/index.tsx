@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { BsHouse } from "react-icons/bs";
 import { MdOutlineDirectionsCarFilled } from "react-icons/md";
 import { RiUser6Line } from "react-icons/ri";
-import Logo from "../../assets/images/logo.png";
+import Logo from "@/assets/images/logo.png";
 import { useEffect, useState } from "react";
 
 type SideBarProps = {

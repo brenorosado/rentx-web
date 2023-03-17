@@ -2,7 +2,7 @@ import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { ThemeProvider } from "styled-components";
 import { Modal } from ".";
-import { theme } from "../../globalStyles";
+import { theme } from "@/globalStyles";
 
 describe("Modal component", () => {
 	it("Should render properly", () => {

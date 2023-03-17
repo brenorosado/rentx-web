@@ -1,7 +1,7 @@
 import * as S from "./styles";
 import { FaCheck } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
-import { theme } from "../../globalStyles";
+import { theme } from "@/globalStyles";
 
 type ModalProps = {
     title: string;

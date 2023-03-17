@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 import { ThemeProvider } from "styled-components";
 import { FormInput } from ".";
-import { theme } from "../../globalStyles";
+import { theme } from "@/globalStyles";
 import { AiOutlineMail } from "react-icons/ai";
 import userEvent from "@testing-library/user-event";
 

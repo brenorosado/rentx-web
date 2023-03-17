@@ -3,7 +3,7 @@ import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { ThemeProvider } from "styled-components";
 import { BrowserRouter } from "react-router-dom";
-import { theme } from "../../globalStyles";
+import { theme } from "@/globalStyles";
 import "@testing-library/jest-dom";
 
 const mockedUsedNavigate = jest.fn();

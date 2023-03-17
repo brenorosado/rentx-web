@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import FrameImage from "../../assets/images/homeFrame.png";
+import FrameImage from "@/assets/images/homeFrame.png";
 
 export const HomeMain = styled.main`
     min-height: 100vh;

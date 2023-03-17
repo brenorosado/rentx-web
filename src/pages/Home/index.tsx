@@ -1,7 +1,7 @@
 import * as S from "./styles";
-import FullLogo from "../../assets/images/FullLogo.png";
-import CarImage from "../../assets/images/homeCar.png";
-import { Button } from "../../components/Button";
+import FullLogo from "@/assets/images/FullLogo.png";
+import CarImage from "@/assets/images/homeCar.png";
+import { Button } from "@/components/Button";
 import { Link } from "react-router-dom";
 
 export const Home = () => {

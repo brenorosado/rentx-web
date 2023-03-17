@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 import { Button } from ".";
-import { theme } from "../../globalStyles";
+import { theme } from "@/globalStyles";
 import { ThemeProvider } from "styled-components";
 import userEvent from "@testing-library/user-event";
 

@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import api from "../services/api";
+import api from "@/services/api";
 import { isAxiosError } from "axios";
 
 type useFetchProps = {

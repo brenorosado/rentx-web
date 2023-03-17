@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 import { ThemeProvider } from "styled-components";
 import { TopBar } from ".";
-import { theme } from "../../globalStyles";
+import { theme } from "@/globalStyles";
 
 const mockedUsedNavigate = jest.fn();
 

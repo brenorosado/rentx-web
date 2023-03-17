@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import ModalBackground from "../../assets/images/modal-background.png";
+import ModalBackground from "@/assets/images/modal-background.png";
 
 export const Overlay = styled.div`
     width: 100vw;
