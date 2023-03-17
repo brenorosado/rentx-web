@@ -1,44 +1,44 @@
 import React from "react";
-import { BrowserRouter, Routes, createBrowserRouter, RouterProvider, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Home } from "../pages/Home";
 import { PageNotFound } from "../pages/PageNotFound";
 import { Registration } from "../pages/Registration";
 import { MenusLayout } from "../Layout/MenusLayout";
 
 const routes = [
-    {
-        path: "/",
-        authRequired: false,
-        element: <Home />
-    },
-    {
-        path: "/cadastro",
-        authRequired: false,
-        element: (
-            <MenusLayout>
-                <Registration />
-            </MenusLayout>
-        )
-    }
-]
+	{
+		path: "/",
+		authRequired: false,
+		element: <Home />
+	},
+	{
+		path: "/cadastro",
+		authRequired: false,
+		element: (
+			<MenusLayout>
+				<Registration />
+			</MenusLayout>
+		)
+	}
+];
 
 export const ProjectRoutes = () => {
-    const isAuthenticated = true;
+	const isAuthenticated = true;
 
-    return (
-        <BrowserRouter>
-            <Routes>
-                {routes.map(({ element, path, authRequired }) =>
-                    isAuthenticated &&
+	return (
+		<BrowserRouter>
+			<Routes>
+				{routes.map(({ element, path }) =>
+					isAuthenticated &&
                     <Route
-                        key={path}
-                        path={path}
-                        element={element}
+                    	key={path}
+                    	path={path}
+                    	element={element}
                     />
-                )}
+				)}
 
-                <Route element={<PageNotFound />} />
-            </Routes>
-        </BrowserRouter>
-    )
-}
+				<Route element={<PageNotFound />} />
+			</Routes>
+		</BrowserRouter>
+	);
+};

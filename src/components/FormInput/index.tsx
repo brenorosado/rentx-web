@@ -12,51 +12,52 @@ type InputProps = {
     isPassword?: boolean;
     register?: UseFormRegisterReturn;
     icon: JSX.Element;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     error?: string | FieldError | Merge<FieldError, FieldErrorsImpl<any>>;
 }
 
 export const FormInput = ({
-    id,
-    register,
-    placeHolder,
-    type = "text",
-    isPassword = false,
-    icon,
-    label,
-    error
+	id,
+	register,
+	placeHolder,
+	type = "text",
+	isPassword = false,
+	icon,
+	label,
+	error
 }: InputProps) => {
-    const [showPassword, setShowPassword] = useState<boolean>(false);
+	const [showPassword, setShowPassword] = useState<boolean>(false);
 
-    return (
-        <S.FormInputContainer error={!!error}>
-            <S.IconContainer title={label}>
-                {icon}
-            </S.IconContainer>
-            <S.InputContainer>
-                <input
-                    id={id}
-                    type={isPassword ? showPassword ? type : "password" : type}
-                    placeholder={placeHolder}
-                    {...register}
-                />
+	return (
+		<S.FormInputContainer error={!!error}>
+			<S.IconContainer title={label}>
+				{icon}
+			</S.IconContainer>
+			<S.InputContainer>
+				<input
+					id={id}
+					type={isPassword ? showPassword ? type : "password" : type}
+					placeholder={placeHolder}
+					{...register}
+				/>
 
-                {isPassword && (
-                    <>
-                        <button onClick={(event) => {
-                            event.preventDefault();
-                            setShowPassword(prevState => !prevState);
-                        }}>
-                            {showPassword ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
-                        </button>
-                    </>
-                )}
+				{isPassword && (
+					<>
+						<button onClick={(event) => {
+							event.preventDefault();
+							setShowPassword(prevState => !prevState);
+						}}>
+							{showPassword ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
+						</button>
+					</>
+				)}
 
-                {error && (
-                    <S.ErrorContainer>
-                        <span><BiErrorCircle /> {error as string}</span>
-                    </S.ErrorContainer>
-                )}
-            </S.InputContainer>
-        </S.FormInputContainer>
-    )
-}
+				{error && (
+					<S.ErrorContainer>
+						<span><BiErrorCircle /> {error as string}</span>
+					</S.ErrorContainer>
+				)}
+			</S.InputContainer>
+		</S.FormInputContainer>
+	);
+};

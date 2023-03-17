@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import ModalBackground from "../../assets/images/modal-background.png";
+import ModalBackground from "@/assets/images/modal-background.png";
 
 export const Overlay = styled.div`
     width: 100vw;
@@ -47,13 +47,13 @@ export const Modal = styled.div`
         all: unset;
         padding: clamp(20px, 1.042vw, 1.042vw) clamp(48px, 2.5vw, 2.5vw);
         ${({ theme }) => {
-            const { gray_titles, white } = theme.colors;
+		const { gray_titles, white } = theme.colors;
 
-            return `
+		return `
                 background: ${gray_titles};
                 color: ${white};
             `;
-        }};
+	}};
         margin-top: clamp(24px, 1.25vw, 1.25vw);
         font-size: clamp(16px, 0.83vw, 0.83vw);
         cursor: pointer;

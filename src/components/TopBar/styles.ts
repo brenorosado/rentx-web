@@ -40,12 +40,12 @@ export const AuthInfoContainer = styled.div`
         border-radius: 50%;
         font-size: clamp(22px, 1.146vw, 1.146vw);
         ${({ theme }) => {
-            const { gray_secundary, gray_text } = theme.colors;
+		const { gray_secundary, gray_text } = theme.colors;
 
-            return `
+		return `
                 background: ${gray_secundary};
                 color: ${gray_text};
-            `
-        }}
+            `;
+	}}
     }
 `;

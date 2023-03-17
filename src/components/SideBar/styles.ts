@@ -40,12 +40,12 @@ export const SideItem = styled.li<{ isSelected: boolean }>`
     justify-content: center;
     align-items: center;
     ${({ theme, isSelected }) => {
-        const { red, black, white, gray_text } = theme.colors;
-        return `
+		const { red, black, white, gray_text } = theme.colors;
+		return `
             border-left: clamp(3px, 0.15625vw, 0.15625vw) solid ${isSelected ? red : black};
             background: ${isSelected ? "black" : black};
             color: ${isSelected ? white : gray_text};
         `;
-    }};
+	}};
     cursor: pointer;
 `;

@@ -3,9 +3,9 @@ import styled from "styled-components";
 export const FormInputContainer = styled.div<{ error: boolean }>`
     display: flex;
     border: 1px solid ${({ theme, error }) => {
-        const { gray_secundary, pink } = theme.colors;
-        return error ? pink : gray_secundary
-    }};
+		const { gray_secundary, pink } = theme.colors;
+		return error ? pink : gray_secundary;
+	}};
     gap: clamp(2px, 0.1042vw, 0.1042vw);
 `;
 
@@ -17,12 +17,12 @@ export const IconContainer = styled.div`
     width: clamp(64px, 3.33vw, 3.33vw);
 
     ${({ theme }) => {
-        const { white, gray_text } = theme.colors;
-        return `
+		const { white, gray_text } = theme.colors;
+		return `
             color: ${gray_text};
             background: ${white};
-        `
-    }};
+        `;
+	}};
 `;
 
 export const InputContainer = styled.div`
