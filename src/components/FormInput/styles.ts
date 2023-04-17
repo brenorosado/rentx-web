@@ -2,23 +2,27 @@ import styled from "styled-components";
 
 export const FormInputContainer = styled.div<{ error: boolean }>`
     display: flex;
-    border: 1px solid ${({ theme, error }) => {
+    ${({ theme, error }) => {
 		const { gray_secundary, pink } = theme.colors;
-		return error ? pink : gray_secundary;
-	}};
-    gap: clamp(2px, 0.1042vw, 0.1042vw);
+		const { x1, x2 } = theme.sizes;
+
+		return `
+            gap: ${x2};
+            border: ${x1} solid ${error ? pink : gray_secundary};
+        `;
+	}}
 `;
 
 export const IconContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: clamp(24px, 1.25vw, 1.25vw);
-    width: clamp(64px, 3.33vw, 3.33vw);
-
     ${({ theme }) => {
 		const { white, gray_text } = theme.colors;
+		const { x24, x64 } = theme.sizes;
 		return `
+            width: ${x64};
+            font-size: ${x24};
             color: ${gray_text};
             background: ${white};
         `;
@@ -34,38 +38,55 @@ export const InputContainer = styled.div`
     input {
         all: unset;
         background: white;
-        font-size: clamp(16px, 0.833vw, 0.833vw);
-        padding: clamp(24px, 1.25vw, 1.25vw);
-        color: ${({ theme }) => theme.colors.gray_titles};
         width: 100%;
+        ${({ theme }) => {
+		const { gray_details, gray_titles } = theme.colors;
+		const { x16, x24 } = theme.sizes;
+		return `
+            font-size: ${x16};
+            padding: ${x24};
+            color: ${gray_titles};
 
-        ::placeholder {
-            color: ${({ theme }) => theme.colors.gray_details};
-        }
+            ::placeholder {
+                color: ${gray_details};
+            }
+        `;
+	    }}
     }
     
     button {
         all: unset;
         cursor: pointer;
-        padding: clamp(8px, 0.42vw, 0.42vw);
-        font-size: clamp(20px, 1.042vw, 1.042vw);
-        color: ${({ theme }) => theme.colors.gray_details};
         display: flex;
         align-items: center;
         justify-content: center;
+        ${({ theme }) => {
+		const { gray_details} = theme.colors;
+		const { x8, x20 } = theme.sizes;
+		return `
+            color: ${gray_details};
+            padding: ${x8};
+            font-size: ${x20};
+        `;
+	}}
     }
 `;
 
 export const ErrorContainer = styled.div`
     position: absolute;
-    bottom: clamp(2px, 0.1042vw, 0.1042vw);
-
-    span {
-        padding-left: clamp(2px, 0.1042vw, 0.1042vw);
-        display: flex;
-        align-items: center;
-        gap: clamp(2px, 0.1042vw, 0.1042vw);
-        color: ${({ theme }) => theme.colors.pink};
-        font-size: clamp(12px, 0.625vw, 0.625vw);
-    }
+    ${({ theme }) => {
+		const { x2, x12 } = theme.sizes;
+		const { pink } = theme.colors;
+		return `
+        bottom: ${x2};
+        span {
+            display: flex;
+            align-items: center;
+            padding-left: ${x2};
+            gap: ${x2};
+            color: ${pink};
+            font-size: ${x12};
+        }
+    `;
+	}}
 `;

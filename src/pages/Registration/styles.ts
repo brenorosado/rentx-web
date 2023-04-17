@@ -18,24 +18,30 @@ export const CarImage = styled.img`
 export const RegistrationColumnInfo = styled.article`
     display: flex;
     flex-direction: column;
-    gap: clamp(24px, 1.25vw, 1.25vw);
+    ${({ theme }) => {
+		const { x8, x16, x24, x36 } = theme.sizes;
+		const { gray_titles, gray_text } = theme.colors;
+		return `
+            gap: ${x24};
 
-    h1 {
-        font-family: 'Archivo', sans-serif;
-        font-weight: 600;
-        font-size: clamp(36px, 1.875vw, 1.875vw);
-        ${({ theme }) => theme.colors.gray_titles};
-    }
+            h1 {
+                font-family: 'Archivo', sans-serif;
+                font-weight: 600;
+                font-size: ${x36};
+                ${gray_titles};
+            }
 
-    p {
-        font-size: clamp(16px, 0.83vw, 0.83vw);
-        color: ${({ theme }) => theme.colors.gray_text};
-    }
+            p {
+                font-size: ${x16};
+                color: ${gray_text};
+            }
 
-    form {
-        min-width: 272px;
-        display: flex;
-        flex-direction: column;
-        gap: clamp(8px, 0.42vw, 0.42vw);
-    }
+            form {
+                min-width: 272px;
+                display: flex;
+                flex-direction: column;
+                gap: ${x8};
+            }
+        `;
+	}}
 `;

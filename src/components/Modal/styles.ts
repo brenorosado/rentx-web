@@ -15,48 +15,48 @@ export const Overlay = styled.div`
 `;
 
 export const Modal = styled.div`
-    background-color: ${({ theme }) => theme.colors.black_secundary};
-    padding: clamp(16px, 0.83vw, 0.83vw);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: clamp(16px, 0.83vw, 0.83vw);
     padding: clamp(80px, 4.166vw, 4.166vw);
     max-width: clamp(344px, 20vw, 20vw);
     background-image: url(${ModalBackground});
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100% auto;
-
-    h3 {
-        margin-top: clamp(32px, 1.667vw, 1.667vw);
-        font-family: 'Archivo', sans-serif;
-        font-size: clamp(36px, 1.875vw, 1.875vw);
-        color: ${({ theme }) => theme.colors.white};
-        text-align: center;
-    }
-
-    p {
-        font-family: 'Inter', sans-serif;
-        font-size: clamp(18px, 0.9375vw, 0.9375vw);
-        color: ${({ theme }) => theme.colors.gray_dark};
-        text-align: center;
-    }
-
-    button {
-        all: unset;
-        padding: clamp(20px, 1.042vw, 1.042vw) clamp(48px, 2.5vw, 2.5vw);
-        ${({ theme }) => {
-		const { gray_titles, white } = theme.colors;
-
+    ${({ theme }) => {
+		const { x16, x18, x20, x24, x32, x36, x48, x80 } = theme.sizes;
+		const { black_secundary, white, gray_dark, gray_titles } = theme.colors;
 		return `
-                background: ${gray_titles};
-                color: ${white};
-            `;
-	}};
-        margin-top: clamp(24px, 1.25vw, 1.25vw);
-        font-size: clamp(16px, 0.83vw, 0.83vw);
-        cursor: pointer;
-        background-opacity: 0.3;
-    }
+        padding: ${x16} ${x80};
+        gap: ${x16};
+        background-color: ${black_secundary};
+        
+        h3 {
+            font-family: 'Archivo', sans-serif;
+            text-align: center;
+            margin-top: ${x32};
+            font-size: ${x36};
+            color: ${white};
+        }
+
+        p {
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+            font-size: ${x18};
+            color: ${gray_dark};
+        }
+
+        button {
+            all: unset;
+            cursor: pointer;
+            background-opacity: 0.3;
+            padding: ${x20} ${x48};
+            background: ${gray_titles};
+            color: ${white};
+            margin-top: ${x24};
+            font-size: ${x16};
+        }
+        `;
+	}}
 `;

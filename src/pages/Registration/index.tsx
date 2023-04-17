@@ -70,7 +70,7 @@ export const Registration = () => {
 				}
 			});
 			if (createdAccountRes) setModalInfo(modalSuccessInfo);
-			else setModalInfo({ ...modalErrorInfo, text: error });
+			else setModalInfo(modalErrorInfo);
 		} catch (e) {
 			setModalInfo(modalErrorInfo);
 		}
@@ -160,7 +160,7 @@ export const Registration = () => {
 				<Modal
 					success={modalInfo.success}
 					title={modalInfo.title}
-					text={modalInfo.text}
+					text={error ? error : modalInfo.text}
 					buttonText="Ok"
 					onOk={() => {
 						setModalInfo(modalInfoInitialState);
