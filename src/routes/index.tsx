@@ -1,9 +1,10 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Home } from "../pages/Home";
-import { PageNotFound } from "../pages/PageNotFound";
-import { Registration } from "../pages/Registration";
-import { MenusLayout } from "../Layout/MenusLayout";
+import { Home } from "@/pages/Home";
+import { Login } from "@/pages/Login";
+import { PageNotFound } from "@/pages/PageNotFound";
+import { Registration } from "@/pages/Registration";
+import { MenusLayout } from "@/Layout/MenusLayout";
 
 const routes = [
 	{
@@ -17,6 +18,15 @@ const routes = [
 		element: (
 			<MenusLayout>
 				<Registration />
+			</MenusLayout>
+		)
+	},
+	{
+		path: "/entrar",
+		authRequired: false,
+		element: (
+			<MenusLayout>
+				<Login />
 			</MenusLayout>
 		)
 	}

@@ -33,7 +33,8 @@ export const FormInput = ({
 			<S.IconContainer title={label}>
 				{icon}
 			</S.IconContainer>
-			<S.InputContainer>
+			<S.InputContainer error={!!error}>
+				<label>{label} {error && <><BiErrorCircle />{" "}{error}</>}</label>
 				<input
 					id={id}
 					type={isPassword ? showPassword ? type : "password" : type}
@@ -52,11 +53,11 @@ export const FormInput = ({
 					</>
 				)}
 
-				{error && (
+				{/* {error && (
 					<S.ErrorContainer>
 						<span><BiErrorCircle /> {error as string}</span>
 					</S.ErrorContainer>
-				)}
+				)} */}
 			</S.InputContainer>
 		</S.FormInputContainer>
 	);

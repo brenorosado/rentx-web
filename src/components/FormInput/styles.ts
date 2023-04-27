@@ -29,11 +29,27 @@ export const IconContainer = styled.div`
 	}};
 `;
 
-export const InputContainer = styled.div`
+export const InputContainer = styled.div<{ error?: boolean }>`
     position: relative;
     display: flex;
     background: white;
     width: 100%;
+
+    label {
+        position: absolute;
+        font-size: 14px;
+        ${({ theme, error }) => {
+		const { x4, x14, x24 } = theme.sizes;
+		const { gray_details, red } = theme.colors;
+		return `
+            top: ${x4};
+            left: ${x24};
+            font-size: ${x14};
+            font-family: 'Inter';
+            color: ${error ? red : gray_details};
+        `;
+	}}
+    }
 
     input {
         all: unset;
@@ -41,10 +57,12 @@ export const InputContainer = styled.div`
         width: 100%;
         ${({ theme }) => {
 		const { gray_details, gray_titles } = theme.colors;
-		const { x16, x24 } = theme.sizes;
+		const { x16, x24, x20, x32 } = theme.sizes;
 		return `
             font-size: ${x16};
             padding: ${x24};
+            padding-bottom: ${x20};
+            padding-top: ${x32};
             color: ${gray_titles};
 
             ::placeholder {

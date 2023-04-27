@@ -53,7 +53,7 @@ export const Registration = () => {
 		}
 	});
 
-	const { fetch: mergeRegistration, error } = useFetch({
+	const { fetch: mergeRegistration, loading, error } = useFetch({
 		route: "/account",
 		method: "post",
 		authRequired: false
@@ -84,7 +84,7 @@ export const Registration = () => {
 				<form onSubmit={handleSubmit(registrate)}>
 					<FormInput
 						id="name"
-						placeHolder="Nome"
+						placeHolder="Digite seu nome"
 						label="Nome"
 						icon={<RiUser6Line />}
 						register={{
@@ -96,7 +96,7 @@ export const Registration = () => {
 					/>
 					<FormInput
 						id="email"
-						placeHolder="E-mail"
+						placeHolder="Digite seu e-mail"
 						label="E-mail"
 						icon={<AiOutlineMail />}
 						register={{
@@ -108,7 +108,7 @@ export const Registration = () => {
 					/>
 					<FormInput
 						id="cnh"
-						placeHolder="CNH"
+						placeHolder="Digite sua CNH"
 						label="CNH"
 						icon={<MdOutlineDirectionsCarFilled />}
 						register={{
@@ -120,7 +120,7 @@ export const Registration = () => {
 					/>
 					<FormInput
 						id="password"
-						placeHolder="Senha"
+						placeHolder="Digite sua senha"
 						label="Senha"
 						icon={<RiUser6Line />}
 						register={{
@@ -133,7 +133,7 @@ export const Registration = () => {
 					/>
 					<FormInput
 						id="passwordConfirmation"
-						placeHolder="Repetir senha"
+						placeHolder="Digite sua senha novamente"
 						label="Repetir senha"
 						icon={<AiOutlineLock />}
 						register={{
@@ -145,7 +145,8 @@ export const Registration = () => {
 						isPassword={true}
 					/>
 
-					<Button 
+					<Button
+						disabled={loading}
 						styleType="RED"
 						text="Cadastrar"
 						type="submit"
