@@ -54,7 +54,7 @@ export const Registration = () => {
 	});
 
 	const { fetch: mergeRegistration, error } = useFetch({
-		route: "/account",
+		route: "/user/sign-up",
 		method: "post",
 		authRequired: false
 	});
