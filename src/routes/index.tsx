@@ -4,6 +4,7 @@ import { Home } from "../pages/Home";
 import { PageNotFound } from "../pages/PageNotFound";
 import { Registration } from "../pages/Registration";
 import { MenusLayout } from "../Layout/MenusLayout";
+import { Login } from "@/pages/Login";
 
 const routes = [
 	{
@@ -17,6 +18,15 @@ const routes = [
 		element: (
 			<MenusLayout>
 				<Registration />
+			</MenusLayout>
+		)
+	},
+	{
+		path: "/entrar",
+		authRequired: false,
+		element: (
+			<MenusLayout>
+				<Login />
 			</MenusLayout>
 		)
 	}

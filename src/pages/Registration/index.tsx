@@ -10,25 +10,22 @@ import { Button } from "@/components/Button";
 import { useFetch } from "@/hooks/useFetch";
 import { Modal } from "@/components/Modal";
 import { useNavigate } from "react-router-dom";
+import { AxiosError } from "axios";
+import { ModalInfoProps, defaultModalInfo } from "@/components/Modal";
 
-const modalInfoInitialState = {
-	visibility: false,
-	title: "",
-	text: "",
-	success: false
-};
-
-const modalSuccessInfo = {
+const modalSuccessInfo: ModalInfoProps = {
 	visibility: true,
 	title: "Conta criada",
 	text: "Agora você parte da RentX. Seja bem-vindo(a).",
+	error: "",
 	success: true
 };
 
-const modalErrorInfo = {
+const modalErrorInfo: ModalInfoProps = {
 	visibility: true,
 	title: "Erro ao criar conta",
 	text: "Ocorreu um erro ao criar sua conta. Revise os dados do formulário.",
+	error: "",
 	success: false
 };
 
@@ -41,7 +38,9 @@ type FormProps = {
 }
 
 export const Registration = () => {
-	const [modalInfo, setModalInfo] = useState(modalInfoInitialState);
+	const [modalInfo, setModalInfo] = useState<ModalInfoProps>(
+		defaultModalInfo
+	);
 
 	const { handleSubmit, register, formState: { errors } } = useForm({
 		defaultValues: {
@@ -53,27 +52,29 @@ export const Registration = () => {
 		}
 	});
 
-	const { fetch: mergeRegistration, error } = useFetch({
+	const { fetch: mergeRegistration } = useFetch({
 		route: "/user/sign-up",
-		method: "post",
-		authRequired: false
+		method: "post"
 	});
 
 	const navigate = useNavigate();
 
 	const registrate = async (data: FormProps) => {
-		try {
-			const createdAccountRes = await mergeRegistration({ 
-				payload: {
-					...data,
-					role: "USER"
-				}
+		const createdAccountRes = await mergeRegistration({ 
+			payload: {
+				...data,
+				role: "USER"
+			}
+		});
+
+		if (createdAccountRes.status === 201)
+			setModalInfo(modalSuccessInfo);
+
+		if(createdAccountRes instanceof AxiosError)
+			setModalInfo({
+				...modalErrorInfo,
+				error: createdAccountRes?.response?.data?.message
 			});
-			if (createdAccountRes) setModalInfo(modalSuccessInfo);
-			else setModalInfo(modalErrorInfo);
-		} catch (e) {
-			setModalInfo(modalErrorInfo);
-		}
 	};
 
 	return (
@@ -122,7 +123,7 @@ export const Registration = () => {
 						id="password"
 						placeHolder="Senha"
 						label="Senha"
-						icon={<RiUser6Line />}
+						icon={<AiOutlineLock />}
 						register={{
 							...register("password", {
 								required: "Campo obrigatório."
@@ -160,10 +161,10 @@ export const Registration = () => {
 				<Modal
 					success={modalInfo.success}
 					title={modalInfo.title}
-					text={error ? error : modalInfo.text}
+					text={modalInfo.error ? modalInfo.error : modalInfo.text}
 					buttonText="Ok"
 					onOk={() => {
-						setModalInfo(modalInfoInitialState);
+						setModalInfo(defaultModalInfo);
 						modalInfo.success && navigate("/entrar");
 					}}
 				/>

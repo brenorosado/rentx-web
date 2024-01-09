@@ -2,7 +2,7 @@ import * as S from "./styles";
 
 type ButtonProps = {
     type?: "button" | "submit";
-    styleType: "RED" | "GREEN";
+    styleType: "RED" | "GREEN" | "TRANSPARENT";
     onClick?: () => void;
     text: string;
     disabled?: boolean;

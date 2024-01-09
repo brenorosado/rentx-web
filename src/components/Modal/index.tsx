@@ -3,6 +3,22 @@ import { FaCheck } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 import { theme } from "@/globalStyles";
 
+export type ModalInfoProps = {
+	visibility: boolean;
+	title: string;
+	text: string;
+	error: string | undefined;
+	success: boolean;
+}
+
+export const defaultModalInfo: ModalInfoProps = {
+	visibility: false,
+	title: "",
+	text: "",
+	error: "",
+	success: false
+};
+
 type ModalProps = {
     title: string;
     text: string;
